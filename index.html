@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="night">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#080d1a">
+  <title>Abhinay Pratap Singh - Engineer · abhinay.dev</title>
+  <meta name="description" content="Portfolio of Abhinay Pratap Singh - CSE undergraduate, AI/ML enthusiast, builder, and visual storyteller.">
+  <link rel="stylesheet" href="style.css">
+  <!-- Lenis Smooth Scroll -->
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css">
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════
+       MACBOOK BOOT SCREEN
+       ═══════════════════════════════════════ -->
+  <div id="boot-screen">
+    <div class="boot-logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Boot Logo" width="80" class="boot-logo boot-apple">
+    </div>
+    <div class="boot-progress-track">
+      <div class="boot-progress-bar" id="boot-progress"></div>
+    </div>
+    <div class="boot-text">excellence takes a moment, standby.</div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div id="mac-cursor">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="cursor-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#00f0c8">
+            <animate attributeName="stop-color" values="#00f0c8;#ffb347;#ff6b9d;#b39ddb;#00f0c8" dur="4s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="100%" stop-color="#ffb347">
+            <animate attributeName="stop-color" values="#ffb347;#ff6b9d;#b39ddb;#00f0c8;#ffb347" dur="4s" repeatCount="indefinite" />
+          </stop>
+        </linearGradient>
+        <filter id="cursor-glow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="2" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+      </defs>
+      <path d="M4.5 2.5L20.5 10.5L13.5 13.5L18.5 21.5L15.5 23.5L10.5 15.5L4.5 21.5V2.5Z" fill="url(#cursor-gradient)" stroke="white" stroke-width="1.5" stroke-linejoin="round" filter="url(#cursor-glow)" />
+    </svg>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       THEME TOGGLE - Morning / Sunset / Night
+       ═══════════════════════════════════════ -->
+  <div id="theme-toggle">
+    <div id="theme-slider"></div>
+    <button class="theme-btn" data-theme="morning" aria-label="Morning theme" title="Morning">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+    <button class="theme-btn" data-theme="sunset" aria-label="Sunset theme" title="Sunset">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M17 18a5 5 0 0 0-10 0"/>
+        <line x1="12" y1="2" x2="12" y2="9"/>
+        <line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/>
+        <line x1="1" y1="18" x2="3" y2="18"/>
+        <line x1="21" y1="18" x2="23" y2="18"/>
+        <line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/>
+        <line x1="23" y1="22" x2="1" y2="22"/>
+        <polyline points="8,6 12,2 16,6"/>
+      </svg>
+    </button>
+    <button class="theme-btn active" data-theme="night" aria-label="Night theme" title="Night">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- CINEMATIC BACKGROUND (PURE CSS) -->
+  <div id="cinema">
+    <!-- SCENE 1: The Mountains at Dawn (0-12.5%) -->
+    <div class="scene" id="scene-1" style="opacity: 1;">
+      <div class="layer layer-far"></div>
+      <div class="layer layer-far stars"></div>
+      <div class="layer layer-far horizon-glow"></div>
+      <div class="layer layer-far mountain-back"></div>
+      <div class="layer layer-mid mountain-mid"></div>
+      <div class="layer layer-close mist"></div>
+      <div class="layer layer-close mountain-front"></div>
+    </div>
+
+    <!-- SCENE 2: The Window (12.5-25%) -->
+    <div class="scene" id="scene-2">
+      <div class="layer layer-far outside">
+        <div class="layer-far horizon-glow"></div>
+        <div class="layer-mid mountain-mid"></div>
+        <div class="layer-close mountain-front"></div>
+      </div>
+      <div class="layer layer-close window-frame"></div>
+      <div class="layer layer-close window-mullion-v"></div>
+      <div class="layer layer-close window-mullion-h"></div>
+      <div class="layer layer-close room-glow"></div>
+      <div class="layer layer-close glass-reflection"></div>
+    </div>
+
+    <!-- SCENE 3: The Desk (25-37.5%) -->
+    <div class="scene" id="scene-3">
+      <div class="layer layer-far bg"></div>
+      <div class="layer layer-far window-far"></div>
+      <div class="layer layer-mid desk-surface"></div>
+      <div class="layer layer-close macbook-base">
+        <div class="keyboard"></div>
+        <div class="trackpad"></div>
+      </div>
+      <div class="layer layer-close macbook-screen"></div>
+      <div class="layer layer-close screen-low"></div>
+      <div class="layer layer-close coffee-mug"></div>
+      <div class="layer layer-close steam"></div>
+    </div>
+
+    <!-- SCENE 4: Screen Glows (37.5-50%) -->
+    <div class="scene" id="scene-4">
+      <div class="layer layer-far bg"></div>
+      <div class="layer layer-mid macbook-screen-zoom">
+        <div class="editor-header">
+          <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+        <div class="code-content">
+          <span class="keyword">import</span> torch<br>
+          <span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn<br><br>
+          <span class="keyword">class</span> <span class="function">NeuralNet</span>(nn.Module):<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span> <span class="function">__init__</span>(self):<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">super</span>().__init__()<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.layer1 = nn.Linear(784, 128)<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.relu = nn.ReLU()<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># focus mode engaged.</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.layer2 = nn.Linear(128, 10)<br><br>
+          <span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="function">range</span>(100):<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;loss = train_step(model, data)<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">f"Epoch {epoch} Loss: {loss}"</span>)<span class="cursor-blink"></span>
+        </div>
+      </div>
+      <div class="layer layer-close intense-glow"></div>
+    </div>
+
+    <!-- SCENE 5: The Breakthrough (50-62.5%) -->
+    <div class="scene" id="scene-5">
+      <div class="layer layer-far bg"></div>
+      <div class="layer layer-far window-light"></div>
+      <div class="layer layer-close lens-flare"></div>
+      <div class="layer layer-mid macbook-screen-zoom"
+        style="box-shadow: 0 0 120px rgba(40,200,100,0.4); border-color:#111;">
+        <div class="editor-header">
+          <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+        <div class="terminal-content">
+          > python train.py<br>
+          initializing training loop...<br>
+          epoch 100/100 completed.<br>
+          evaluating model...<br><br>
+          <span class="success">✓ model accuracy: 94.7%</span><br>
+          <span class="success">✓ all tests passed.</span><br>
+          <span class="success">training complete.</span><br><br>
+          > <span class="cursor-blink"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENE 6: City Connects (62.5-75%) -->
+    <div class="scene" id="scene-6">
+      <div class="layer layer-far outside">
+        <div class="mountain-silhouette"></div>
+        <div class="valley"></div>
+        <div class="city-lights"></div>
+        <div class="network-grid"></div>
+      </div>
+      <div class="layer layer-close room-silhouette"></div>
+      <div class="layer layer-close macbook-tiny"></div>
+    </div>
+
+    <!-- SCENE 7: The Launch (75-87.5%) -->
+    <div class="scene" id="scene-7">
+      <div class="layer layer-far bg"></div>
+      <div class="layer layer-mid keyboard-close">
+        <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key" style="grid-column: span 2;"></div>
+        <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key" style="grid-column: span 2;"></div>
+        <div class="key" style="grid-column: span 2;"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key" style="grid-column: span 2;"></div>
+        <div class="key" style="grid-column: span 2;"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key" style="grid-column: span 2;"></div>
+        <div class="key" style="grid-column: span 4;"></div><div class="key" style="grid-column: span 7;"></div><div class="key" style="grid-column: span 4;"></div>
+      </div>
+      <div class="layer layer-close screen-reflection"></div>
+      <div class="layer layer-close particles"></div>
+    </div>
+
+    <!-- SCENE 8: Signal Sent (87.5-100%) -->
+    <div class="scene" id="scene-8">
+      <div class="layer layer-far sky"></div>
+      <div class="layer layer-far sun"></div>
+      <div class="layer layer-mid mountain-back"></div>
+      <div class="layer layer-close mountain-front"></div>
+      <div class="layer layer-close person"></div>
+      <div class="layer layer-close laptop-side"></div>
+      <div class="layer layer-close screen-glow-side"></div>
+      <div class="layer layer-close signal-beam"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       macOS-STYLE BOTTOM DOCK
+       ═══════════════════════════════════════ -->
+  <div id="dock-wrapper">
+    <div id="dock">
+      <!-- Section nav icons -->
+      <div class="dock-item" data-tooltip="Home" data-href="#hero">
+        <div class="dock-icon">
+          <img src="https://img.icons8.com/fluency/512/mac-client.png" alt="Finder" />
+        </div>
+      </div>
+      <div class="dock-item" data-tooltip="About" data-href="#about">
+        <div class="dock-icon">
+          <img src="https://img.icons8.com/fluency/512/settings.png" alt="Settings" />
+        </div>
+      </div>
+      <div class="dock-item" data-tooltip="Skills" data-href="#skills">
+        <div class="dock-icon">
+          <img src="https://img.icons8.com/color/512/visual-studio-code-2019.png" alt="VS Code" />
+        </div>
+      </div>
+      <div class="dock-item" data-tooltip="Projects" data-href="#projects">
+        <div class="dock-icon">
+          <img src="https://img.icons8.com/color/512/xcode.png" alt="Xcode" />
+        </div>
+      </div>
+      <div class="dock-item" data-tooltip="Experience" data-href="#experience">
+        <div class="dock-icon">
+          <img src="https://img.icons8.com/fluency/512/calendar.png" alt="Calendar" />
+        </div>
+      </div>
+
+      <!-- Dock divider -->
+      <div class="dock-divider">      </div>
+      <!-- Social/External icons - CORRECT LINKS -->
+      <a class="dock-item" data-tooltip="GitHub" href="https://github.com/abhinayhoon" target="_blank" rel="noopener noreferrer">
+        <div class="dock-icon">
+          <img src="https://img.icons8.com/fluency/512/github.png" alt="GitHub" />
+        </div>
+      </a>
+      <a class="dock-item" data-tooltip="LinkedIn" href="https://www.linkedin.com/in/abhinayhai/" target="_blank" rel="noopener noreferrer">
+        <div class="dock-icon">
+          <img src="https://img.icons8.com/fluency/512/linkedin.png" alt="LinkedIn" />
+        </div>
+      </a>
+      <a class="dock-item" data-tooltip="Instagram" href="https://www.instagram.com/kalakaarhai/" target="_blank" rel="noopener noreferrer">
+        <div class="dock-icon">
+          <img src="https://img.icons8.com/fluency/512/instagram-new.png" alt="Instagram" />
+        </div>
+      </a>
+      <a class="dock-item" data-tooltip="LeetCode" href="https://leetcode.com/u/Abhinayhoon/" target="_blank" rel="noopener noreferrer">
+        <div class="dock-icon">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" style="filter: invert(1); padding: 4px;" />
+        </div>
+      </a>
+      <a class="dock-item" data-tooltip="Mail" href="mailto:abhinayhai@gmail.com">
+        <div class="dock-icon">
+          <img src="https://img.icons8.com/fluency/512/mail.png" alt="Mail" />
+        </div>
+      </a>
+      <a class="dock-item" data-tooltip="Resume" href="AbhinayPratapSingh_Resume.pdf" target="_blank" rel="noopener noreferrer">
+        <div class="dock-icon">
+          <img src="https://img.icons8.com/fluency/512/resume.png" alt="Resume" />
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- CONTENT LAYER (GLASS UI) -->
+  <div id="content-layer">
+
+    <!-- THEME TOGGLE - Morning / Sunset / Night -->
+    <section id="hero" class="section-wrapper hero-entrance">
+      <div class="hero-label reveal reveal-up" data-delay="0">CSE_ENGINEER.init() &rarr; ai/ml &middot; problem solver &middot; builder</div>
+      <h1 class="hero-name reveal reveal-up" data-delay="100">ABHINAY</h1>
+      <h2 class="hero-last-name reveal reveal-up" data-delay="150">PRATAP SINGH.</h2>
+      <div class="hero-typewriter reveal reveal-up" data-delay="200" id="hero-typewriter"></div>
+      <p class="hero-tagline reveal reveal-up" data-delay="250">engineering the future. always shipping.</p>
+      <div class="hero-ctas reveal reveal-up" data-delay="300">
+        <a href="#projects" class="btn-primary">view my work</a>
+        <a href="#contact" class="btn-ghost">let's connect</a>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-container">
+      <div class="marquee">
+        <span>PYTHON ✦ JAVA ✦ C ✦ AI/ML ✦ PROBLEM SOLVING ✦ LEADERSHIP ✦ PUBLIC SPEAKING ✦ ALWAYS BUILDING ✦</span>
+        <span>PYTHON ✦ JAVA ✦ C ✦ AI/ML ✦ PROBLEM SOLVING ✦ LEADERSHIP ✦ PUBLIC SPEAKING ✦ ALWAYS BUILDING ✦</span>
+      </div>
+    </div>
+
+    <!-- CINEMATIC QUOTE -->
+    <section id="quote-section">
+      <img src="profile.jpg" alt="Abhinay Pratap Singh" class="profile-picture reveal reveal-up">
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section-wrapper">
+      <div class="glass-container glass interactive reveal reveal-up">
+        <span class="hero-label">// 01 / who_i_am</span>
+        <h2 class="section-title">about<span>.</span></h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>I'm Abhinay Pratap Singh, a computer science undergrad who doesn't just write code, but builds systems. Deeply invested in AI/ML, I thrive on turning complex abstractions into lightning-fast, elegant solutions.</p>
+            <p>Whether I'm optimizing algorithms or architecting modern web apps like my campus food delivery platform, my philosophy is simple: build smart, ship fast, and leave a legendary impact. I'm a quick learner, a relentless problem-solver, and always ready for the next big challenge.</p>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card glass interactive">
+              <div class="stat-num">&infin;</div>
+              <div class="stat-label">lines of code</div>
+            </div>
+            <div class="stat-card glass interactive">
+              <div class="stat-num">24/7</div>
+              <div class="stat-label">learning mode ON</div>
+            </div>
+            <div class="stat-card glass interactive">
+              <div class="stat-num">3+</div>
+              <div class="stat-label">languages</div>
+            </div>
+            <div class="stat-card glass interactive">
+              <div class="stat-num">01</div>
+              <div class="stat-label">goal: ship things that matter</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section-wrapper">
+      <div class="glass-container glass interactive reveal reveal-up">
+        <span class="hero-label">// 02 / what_i_bring</span>
+        <h2 class="section-title">skills<span>.</span></h2>
+
+        <!-- Programming Languages -->
+        <div class="skill-category reveal reveal-up" data-delay="0">
+          <h3 class="skill-category-title">💻 programming languages</h3>
+          <div class="skill-items-row">
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">python</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">java</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="20%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">c</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="75%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI & Machine Learning -->
+        <div class="skill-category reveal reveal-up" data-delay="100">
+          <h3 class="skill-category-title">🧠 ai & machine learning</h3>
+          <div class="skill-items-row">
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">ml fundamentals</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="65%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">data preprocessing</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="60%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">numpy</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="60%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">pandas</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="70%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">matplotlib</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="55%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">scikit-learn</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="55%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Web Development -->
+        <div class="skill-category reveal reveal-up" data-delay="200">
+          <h3 class="skill-category-title">🌐 web development</h3>
+          <div class="skill-items-row">
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">html</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">css</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="50%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">javascript</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="40%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">responsive design</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="35%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Computer Science Fundamentals -->
+        <div class="skill-category reveal reveal-up" data-delay="300">
+          <h3 class="skill-category-title">📚 cs fundamentals</h3>
+          <div class="skill-items-row">
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">dsa</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="25%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">oop</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="30%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">problem solving</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="60%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">database basics</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="25%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools & Technologies -->
+        <div class="skill-category reveal reveal-up" data-delay="400">
+          <h3 class="skill-category-title">🛠️ tools & technologies</h3>
+          <div class="skill-items-row">
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">git</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="75%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">github</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">vs code</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">jupyter notebook</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual Storytelling -->
+        <div class="skill-category reveal reveal-up" data-delay="500">
+          <h3 class="skill-category-title">🎬 visual storytelling</h3>
+          <div class="skill-items-row">
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">photography</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="99.5%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">videography</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="99%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">cinematography</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="95%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">video editing</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="98%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">color grading</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="95%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">content strategy</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="99%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="skill-category reveal reveal-up" data-delay="600">
+          <h3 class="skill-category-title">🤝 soft skills</h3>
+          <div class="skill-items-row">
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">communication</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="92%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">teamwork</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="99%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">presentation skills</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="95%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">leadership</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="98%"></div></div>
+            </div>
+            <div class="skill-item-compact glass interactive">
+              <span class="skill-item-name">critical thinking</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="95%"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section-wrapper">
+      <div class="glass-container glass interactive reveal reveal-up">
+        <span class="hero-label">// 03 / what_i_built</span>
+        <h2 class="section-title">projects<span>.</span></h2>
+        <div class="projects-grid">
+          <div class="project-card glass interactive reveal reveal-up" data-delay="0">
+            <div class="project-num">001</div>
+            <h3 class="project-title">python roadmap for beginners</h3>
+            <p class="project-desc">created an interactive roadmap that guides beginners through python programming concepts from fundamentals to advanced topics. tried to make something genuinely useful for people starting out.</p>
+            <div class="project-features">
+              <span class="feature-item">• structured learning path</span>
+              <span class="feature-item">• responsive web interface</span>
+              <span class="feature-item">• organized resources & milestones</span>
+              <span class="feature-item">• beginner-friendly navigation</span>
+            </div>
+            <div class="project-tech">
+              <span class="tech-badge">html</span><span class="tech-badge">css</span><span class="tech-badge">javascript</span>
+            </div>
+          </div>
+          <div class="project-card glass interactive reveal reveal-up" data-delay="100">
+            <div class="project-num">002 <span style="color:var(--amber); font-size:0.8rem;">// in progress</span></div>
+            <h3 class="project-title">CampusEats</h3>
+            <p class="project-desc">working on a campus-focused food ordering platform designed to connect students with nearby restaurants and food vendors around college. trying to build a localized alternative for areas where bigger delivery apps don't reach.</p>
+            <div class="project-features">
+              <span class="feature-item">• browse nearby food vendors</span>
+              <span class="feature-item">• digital menu management</span>
+              <span class="feature-item">• search & filtering options</span>
+              <span class="feature-item">• mobile-responsive design</span>
+              <span class="feature-item">• campus-focused ux</span>
+            </div>
+            <p class="project-impact">addresses the lack of dedicated food delivery solutions around college. designed to simplify food discovery for students.</p>
+            <div class="project-tech">
+              <span class="tech-badge">html</span><span class="tech-badge">css</span><span class="tech-badge">javascript</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section-wrapper">
+      <div class="glass-container glass interactive reveal reveal-up">
+        <span class="hero-label">// 04 / my_journey</span>
+        <h2 class="section-title">experience<span>.</span></h2>
+        <div class="timeline">
+          <div class="timeline-line"></div>
+          <div class="timeline-item reveal reveal-right" data-delay="0">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card glass interactive">
+              <div class="timeline-date">2025 to present</div>
+              <h3 class="timeline-title">cse undergrad <span>@ Graphic Era Hill University</span></h3>
+              <p class="project-desc">currently learning computer science. picking up ai/ml, dsa, oop, and operating systems. trying to build projects regularly, stay consistent with commits, and learn something new every day.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal reveal-right" data-delay="150">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card glass interactive">
+              <div class="timeline-date">2025</div>
+              <h3 class="timeline-title">completed 12th <span>@ St. Peter's School & College</span></h3>
+              <p class="project-desc">studied science and mathematics here. learned to stay consistent and work through the basics. it gave me a decent foundation to build on.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal reveal-right" data-delay="300">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card glass interactive">
+              <div class="timeline-date">04/07/2008</div>
+              <h3 class="timeline-title">born <span>- 04/07/2008</span></h3>
+              <p class="project-desc">started life on this day. core systems initialized. successfully booted up and ready to compile the future.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section id="highlights" class="section-wrapper">
+      <div class="glass-container glass interactive reveal reveal-up">
+        <span class="hero-label">// 05 / small_wins</span>
+        <h2 class="section-title">highlights<span>.</span></h2>
+
+        <!-- Technical -->
+        <h3 class="highlight-group-title reveal reveal-up">technical</h3>
+        <div class="achievements-grid">
+          <div class="achieve-card glass interactive reveal reveal-scale" data-delay="0">
+            <div class="achieve-icon">📦</div>
+            <h3 class="highlight-title">python roadmap on github</h3>
+            <p class="highlight-desc">built and published a beginner-friendly python roadmap project. it's not perfect, but it's out there and people are using it.</p>
+          </div>
+          <div class="achieve-card glass interactive reveal reveal-scale" data-delay="100">
+            <div class="achieve-icon">🌿</div>
+            <h3 class="highlight-title">open-source contributions</h3>
+            <p class="highlight-desc">started contributing to open-source. still learning the workflow, but every pull request teaches something new.</p>
+          </div>
+          <div class="achieve-card glass interactive reveal reveal-scale" data-delay="200">
+            <div class="achieve-icon">⚡</div>
+            <h3 class="highlight-title">hackathons & workshops</h3>
+            <p class="highlight-desc">participated in coding contests, hackathons, and technical workshops. didn't win all of them, but showed up and learned a lot.</p>
+          </div>
+        </div>
+
+        <!-- Leadership & Extracurricular -->
+        <h3 class="highlight-group-title reveal reveal-up" style="margin-top: 40px;">leadership & extracurricular</h3>
+        <div class="achievements-grid">
+          <div class="achieve-card glass interactive reveal reveal-scale" data-delay="0">
+            <div class="achieve-icon">🎪</div>
+            <h3 class="highlight-title">college event organizing</h3>
+            <p class="highlight-desc">helped organize and volunteer at college events. it's a lot of coordination, but i enjoy the chaos.</p>
+          </div>
+          <div class="achieve-card glass interactive reveal reveal-scale" data-delay="100">
+            <div class="achieve-icon">👥</div>
+            <h3 class="highlight-title">team project lead</h3>
+            <p class="highlight-desc">led a team project from ideation to delivery. learned that managing people is harder than managing code.</p>
+          </div>
+          <div class="achieve-card glass interactive reveal reveal-scale" data-delay="200">
+            <div class="achieve-icon">🎤</div>
+            <h3 class="highlight-title">public speaking & community</h3>
+            <p class="highlight-desc">debating, presenting, and trying to build a small community around tech. still figuring things out, but enjoying the process.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog" class="section-wrapper">
+      <div class="glass-container glass interactive reveal reveal-up">
+        <span class="hero-label">// 06 / thoughts</span>
+        <h2 class="section-title">blog<span>.</span></h2>
+        <h3 class="blog-quote reveal reveal-up">"code is just frozen thought. write it like it matters."</h3>
+        <div class="blog-grid">
+          <div class="blog-card glass interactive reveal reveal-fan" data-delay="0">
+            <span class="blog-date">APR 2026</span>
+            <h3 class="skill-name">why every cse student should learn c before python</h3>
+            <span class="tech-badge" style="margin-top:20px;display:inline-block;">programming</span>
+          </div>
+          <div class="blog-card glass interactive reveal reveal-fan" data-delay="150">
+            <span class="blog-date">MAR 2026</span>
+            <h3 class="skill-name">what organising a school fest taught me about software architecture</h3>
+            <span class="tech-badge" style="margin-top:20px;display:inline-block;">leadership</span>
+          </div>
+          <div class="blog-card glass interactive reveal reveal-fan" data-delay="300">
+            <span class="blog-date">FEB 2026</span>
+            <h3 class="skill-name">the gen-z engineer's manifesto: build fast, learn faster</h3>
+            <span class="tech-badge" style="margin-top:20px;display:inline-block;">opinion</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section-wrapper">
+      <div class="glass-container glass interactive reveal reveal-up">
+        <span class="hero-label">// 07 / transmission</span>
+        <div class="contact-giant reveal reveal-up">LET'S BUILD <span>SOMETHING.</span></div>
+        <p class="contact-subtitle reveal reveal-up">whether it's a collab, internship, project, or just a conversation about tech, i'm one message away.</p>
+
+        <div class="social-links reveal reveal-up">
+          <a href="https://www.buymeacoffee.com/abhinayhai" target="_blank" class="social-btn glass interactive">
+            <svg viewBox="0 0 24 24"><path d="M20.216 5.285l-1.124-1.405A2.365 2.365 0 0 0 17.234 3H6.766a2.365 2.365 0 0 0-1.858.88L3.784 5.285A2.36 2.36 0 0 0 3.328 6.74v9.64a2.373 2.373 0 0 0 2.364 2.364h1.168a4.423 4.423 0 0 0 4.195 3.033h1.89A4.423 4.423 0 0 0 17.14 18.744h1.168a2.373 2.373 0 0 0 2.364-2.364V6.74a2.36 2.36 0 0 0-.456-1.455zM15.42 18.745H8.58a2.535 2.535 0 0 1-2.404-1.745h11.648a2.535 2.535 0 0 1-2.404 1.745zM18.8 16.38H5.2V6.9h13.6v9.48z"/></svg>
+            buy me a coffee
+          </a>
+        </div>
+        <div class="availability reveal reveal-up"><span>▮</span> available for internships & collabs.</div>
+      </div>
+    </section>
+
+    <footer>
+      <div>&copy; 2026 Abhinay Pratap Singh. built with obsession & too much diet-coke.</div>
+    </footer>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       EXTERNAL LIBRARIES (CDN)
+       ═══════════════════════════════════════ -->
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <!-- Portfolio Engine -->
+  <script src="script.js"></script>
+</body>
+
+</html>
