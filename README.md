@@ -2,7 +2,7 @@
 
 The source for my personal portfolio site: an interactive, responsive frontend experience that introduces my work, interests, and contact paths.
 
-**Live site:** https://myportfolio-delta-ecru-62.vercel.app
+**Live site:** abhinayhai.vercel.app
 
 ## What this project demonstrates
 
