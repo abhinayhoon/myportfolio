@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/radiohai",
+      "destination": "https://radiohai.vercel.app"
+    },
+    {
+      "source": "/radiohai/:path*",
+      "destination": "https://radiohai.vercel.app/:path*"
+    }
+  ]
+}
