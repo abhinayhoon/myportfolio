@@ -1,13 +1,14 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "redirects": [
+  "rewrites": [
     {
       "source": "/radiohai",
-      "destination": "/radiohai/",
-      "permanent": true
-    }
-  ],
-  "rewrites": [
+      "destination": "https://radiohai.vercel.app/"
+    },
+    {
+      "source": "/radiohai/",
+      "destination": "https://radiohai.vercel.app/"
+    },
     {
       "source": "/radiohai/:path*",
       "destination": "https://radiohai.vercel.app/:path*"
